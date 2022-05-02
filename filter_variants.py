@@ -14,6 +14,7 @@ outDir = sys.argv[3]
 
 df = pd.read_csv(myFile,delimiter="\t")
 #print(df.info())
+
 sampleId = df.iloc[1,0].split('_')[0]
 print("Filtrando muestra:", sampleId)
 
