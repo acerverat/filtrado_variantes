@@ -5,13 +5,9 @@ sudo apt-get install python3-pip curl jp2a jq
 email=AQUI_PON_TU_EMAIL
 pass=AQUI_PON_TU_PASSWORD
 auth=$(echo "$email:$pass" | base64);
-echo $auth
-
 jp2a public/downloading.jpg
 # Installing dependencies
-pip install virtualenv
-pip install python-decouple
-pip install robotframework
+pip install virtualenv python-decouple robotframework
 
 # For more info on extracting the cosmos database look at: 
 # https://cancer.sanger.ac.uk/cosmic/help/file_download
@@ -20,6 +16,6 @@ url=$(curl -H "Authorization: Basic $auth" https://cancer.sanger.ac.uk/cosmic/fi
 wait
 jp2a public/dna.jpg
 echo "Downloading from cosmos database..."
-curl "$url" --output cosmic
+curl "$url" --output cosmicVariants
 
 jp2a public/inmegen_logo.jpg

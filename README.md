@@ -33,4 +33,10 @@ python ../json_to_tsv.py input/test.json output/
 
 python3 ../filter_variants.py input/cosmic_prueba.csv output/CA1154-1RNA_475686108_full.tsv output/
 
+## Recursos
+- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5425734/
+- https://www.youtube.com/watch?v=ErTN5rE6t8s
+- https://www.youtube.com/watch?v=le6wV8x8l-c
+- https://researchtweet.com/free-bioinformatics-tools-for-genomic-testing/
+
 <img width="2000" height= '350' src="public/inmegen.jpg" alt="INMEGEN logo">
