@@ -7,3 +7,9 @@ https://able.bio/rhett/how-to-set-and-get-environment-variables-in-python--274rg
 - Add unitary tests
 - Add e2e tests
 - Erase all hardcoded variables to dynamic vars set by the user.
+
+## Recursos
+- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5425734/
+- https://www.youtube.com/watch?v=ErTN5rE6t8s
+- https://www.youtube.com/watch?v=le6wV8x8l-c
+- https://researchtweet.com/free-bioinformatics-tools-for-genomic-testing/
