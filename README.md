@@ -35,9 +35,7 @@ python ../json_to_tsv.py input/test.json output/
 
 python3 ../filter_variants.py input/cosmic_prueba.csv output/CA1154-1RNA_475686108_full.tsv output/
 
-<img width="2000" height= '350' src="public/inmegen.jpg" alt="INMEGEN logo">
-
-# ¿Dudas? Pregúntale a nuestros desarrolladores 📱
+# ¿Dudas? Pregúntale a los desarrolladores 📱
 
 - Alejandra Cervera Taboada
 
@@ -45,7 +43,7 @@ Correo electrónico: acerverat@inmegen.gob.mx
 
 Github: https://github.com/acerverat
 
-- Carmen? (quien sea que sea rana-frog) xD
+- rana-frog... Carmen eres tu? xD
 
 Correo electrónico: ?
 
@@ -58,3 +56,5 @@ Número de celular: 5549134787
 Correo electrónico: dercomputerschamane@gmail.com
 
 Github: https://github.com/Yony6041
+
+<img width="2000" height= '350' src="public/inmegen.jpg" alt="INMEGEN logo">
