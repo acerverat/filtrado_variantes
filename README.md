@@ -41,11 +41,15 @@ python3 ../filter_variants.py input/cosmic_prueba.csv output/CA1154-1RNA_4756861
 
 - Alejandra Cervera Taboada
 
-Correo electrónico: leslieramg@ciencias.unam.mx
+Correo electrónico: acerverat@inmegen.gob.mx
 
-Número de celular: 5516607138
+Github: https://github.com/acerverat
 
-Github: https://github.com/CS-Leslie
+- Carmen? (quien sea que sea rana-frog) xD
+
+Correo electrónico: ?
+
+Github: https://github.com/rana-frog
 
 - Yonathan Jaramillo Ramírez
 
