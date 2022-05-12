@@ -1,0 +1,24 @@
+{
+	"recommendations": [
+		"github.copilot",
+		"waderyan.gitblame",
+		"mhutchie.git-graph",
+		"pkief.material-icon-theme",
+		"codezombiech.gitignore",
+		"eamodio.gitlens",
+		"ms-vsliveshare.vsliveshare",
+		"ms-vsliveshare.vsliveshare-pack",
+		"ms-vsliveshare.vsliveshare-audio",
+		"zainchen.json",
+		"ms-python.python",
+		"donjayamanne.python-extension-pack",
+		"foxundermoon.shell-format",
+		"kevinrose.vsc-python-indent",
+		"davidanson.vscode-markdownlint",
+		"kisstkondoros.vscode-gutter-preview",
+		"github.remotehub",
+		"oderwat.indent-rainbow",
+		"ms-vscode-remote.remote-wsl",
+		"msrvida.vscode-sanddance"
+	]
+}
