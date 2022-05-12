@@ -19,3 +19,4 @@
 # Testing
 
 - Add e2e tests.
+- Make sure this code runs in Windows and Mac as well
