@@ -6,7 +6,7 @@
 # from scripts.run_analysis import run_comparison, show_results
 
 # Importing dependencies
-from tkinter import PhotoImage, filedialog, Text, Label, Entry
+from tkinter import PhotoImage, filedialog, Message, Label, Entry
 from PIL import ImageTk, Image
 import webbrowser
 import os
@@ -30,8 +30,8 @@ inmegen_logo = Image.open("../public/inmegen_logo.jpg")
 cosmic_logo = Image.open("../public/cosmicLogo.jpg")
 
 # Resize the Image using resize method
-inmegen_resized  = inmegen_logo.resize((150, 150), Image.ANTIALIAS)
-cosmic_resized  = cosmic_logo.resize((600, 100), Image.ANTIALIAS)
+inmegen_resized = inmegen_logo.resize((150, 150), Image.ANTIALIAS)
+cosmic_resized = cosmic_logo.resize((600, 100), Image.ANTIALIAS)
 
 inmegen_logo_resized = ImageTk.PhotoImage(inmegen_resized)
 cosmic_logo_resized = ImageTk.PhotoImage(cosmic_resized)
@@ -48,20 +48,25 @@ inmegen.place(x=450, y=30)
 cosmic.place(x=250, y=300)
 
 # Title
-Text(home, text="InMeGen", font="Arial 20 bold", bg="white").place(x=0, y=0)
+title = Message(home, text="Hola! Deberas iniciar sesion en Cosmic para poder descargar las variantes, tras escribir tus credenciales porfavor dale click en \"Descarga variantes cancerigenas\".",
+                width=500, bg="white", font=("Helvetica", 10))
+
 
 # Labels
-Label(home, text="Email").place(x=200, y=200)
-Label(home, text="Password").place(x=200, y=225)
+Label(home, text="Email").place(x=200, y=220)
+Label(home, text="Password").place(x=200, y=245)
 
 # Text input
-email = Entry(home, width=40, borderwidth=3).place(x=300, y=200)
+email = Entry(home, width=40, borderwidth=3).place(x=300, y=220)
 
-password = Entry(home, width=40, borderwidth=3, show='*').place(x=300, y=225)
+password = Entry(home, width=40, borderwidth=3, show='*').place(x=300, y=245)
 
 # Declaring files
 files = []
 
+title.pack()
+
+title.place(x=190, y=300)
 # TODO: Move all aux functions to helpers
 # Auxiliary functions
 
@@ -95,7 +100,9 @@ def open_cosmic_webpage():
 
 
 def download():
-    print(f"")
+    print("Downloading...")
+    print(email)
+    print(password)
     print("Downloading cosmic variants...")
 
 
@@ -116,7 +123,7 @@ cosmic_variants = tk.Button(window, text="Descarga variantes cancerigenas", padx
                             pady=5, fg="white", bg="#01244D", command=download)
 
 
-open_file = tk.Button(window, text="Selecciona archivos de un pacientes", padx=10,
+open_file = tk.Button(window, text="Selecciona archivos de pacientes", padx=10,
                       pady=5, fg="white", bg="#01244D", command=get_file)
 
 open_folder = tk.Button(window, text="Selecciona carpeta con pacientes", padx=10,
@@ -135,6 +142,9 @@ open_file.pack()
 open_folder.pack()
 run_analysis.pack()
 results.pack()
+
+cosmic_webpage.place(x=450, y=410)
+cosmic_variants.place(x=420, y=600)
 
 window.mainloop()
 
