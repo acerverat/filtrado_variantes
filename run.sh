@@ -13,7 +13,7 @@ sudo chmod +x test.sh
 cd ..
 # Installing dependencies
 sudo apt-get install python3-pip curl jp2a jq python3-tk gzip
-pip install autopep8 virtualenv python-decouple tk Pillow
+pip install autopep8 virtualenv python-decouple tk Pillow requests
 
 # Getting cosmic variants.
 mkdir data

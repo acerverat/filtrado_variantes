@@ -8,20 +8,24 @@
 # Importing dependencies
 from tkinter import PhotoImage, filedialog, Message, Label, Entry
 from PIL import ImageTk, Image
+import requests
+from requests.auth import HTTPBasicAuth
 import webbrowser
-import os
 import tkinter as tk
+import os
+import zipfile
+
+# TODO: finish watching https://www.youtube.com/watch?v=TuLxsvK4svQ
 
 # Running interface
 window = tk.Tk()
 
-window.title("COSMIC Browser")
+window.title("Descubre pacientes con cancer")
 # Setting up canvas
 canvas = tk.Canvas(window, height=800, width=1000, bg="#01244D")
 canvas.pack()
 
 # Setting up frame
-# iconphoto=PhotoImage(file='../public/dna.jpg')
 home = tk.Frame(window, bg="white")
 home.place(relwidth=0.8, relheight=0.5, relx=0.1, rely=0.25)
 
@@ -30,8 +34,10 @@ inmegen_logo = Image.open("../public/inmegen_logo.jpg")
 cosmic_logo = Image.open("../public/cosmicLogo.jpg")
 
 # Resize the Image using resize method
+# TODO: https://stackoverflow.com/questions/58247550/resize-pil-image-valueerror-unknown-resampling-filter
 inmegen_resized = inmegen_logo.resize((150, 150), Image.ANTIALIAS)
 cosmic_resized = cosmic_logo.resize((600, 100), Image.ANTIALIAS)
+
 
 inmegen_logo_resized = ImageTk.PhotoImage(inmegen_resized)
 cosmic_logo_resized = ImageTk.PhotoImage(cosmic_resized)
@@ -57,18 +63,42 @@ Label(home, text="Email").place(x=200, y=220)
 Label(home, text="Password").place(x=200, y=245)
 
 # Text input
-email = Entry(home, width=40, borderwidth=3).place(x=300, y=220)
+email = Entry(home, width=40, borderwidth=3)
 
-password = Entry(home, width=40, borderwidth=3, show='*').place(x=300, y=245)
+password = Entry(home, width=40, borderwidth=3, show='*')
 
 # Declaring files
 files = []
-
 title.pack()
+email.pack()
+password.pack()
+email.place(x=300, y=220)
+password.place(x=300, y=245)
 
 title.place(x=190, y=300)
 # TODO: Move all aux functions to helpers
 # Auxiliary functions
+
+# Here we authenticate the user to download the variants
+
+# async, await?
+
+
+def download():
+    # Extracting the email and password from the interface
+    user_email = email.get()
+    user_password = password.get()
+    # Encryption of authentication
+    # api-endpoint
+    URL = "https://cancer.sanger.ac.uk/cosmic/file_download/GRCh38/cosmic/v95/CosmicMutantExport.tsv.gz"
+    res = requests.get(url=URL, auth=HTTPBasicAuth(user_email, user_password))
+    data = res.json()
+    print(data.url)
+    # file = await requests.get(url=data.url)
+    # open('CosmicMutantExport.tsv.gz', 'wb').write(file.content)
+    # TODO: https://stackoverflow.com/questions/3451111/unzipping-files-in-python
+    # Defining a params dict for the parameters to be sent to the API
+    print("Downloading...")
 
 
 def get_file():
@@ -99,20 +129,18 @@ def open_cosmic_webpage():
     webbrowser.open('https://cancer.sanger.ac.uk/cosmic/register', new=2)
 
 
-def download():
-    print("Downloading...")
-    print(email)
-    print(password)
-    print("Downloading cosmic variants...")
-
-
 def run_comparison():
     for file in files:
-        os.startfile(file)
+        print(file)
+    print("Running comparison...")
 
 
 def show_results():
     print("Showing results...")
+
+
+def testing():
+    print("Testing...")
 
 
 # Setting up buttons
@@ -136,18 +164,18 @@ run_analysis = tk.Button(window, text="Corre el analisis", padx=10,
 results = tk.Button(window, text="Ver resultados", padx=10,
                     pady=5, fg="white", bg="#01244D", command=show_results)
 
+test_code = tk.Button(window, text="Test de funcionalidad", padx=10,
+                      pady=5, fg="white", bg="#01244D", command=testing)
+
 cosmic_webpage.pack()
 cosmic_variants.pack()
 open_file.pack()
 open_folder.pack()
 run_analysis.pack()
 results.pack()
+test_code.pack()
 
 cosmic_webpage.place(x=450, y=410)
-cosmic_variants.place(x=420, y=600)
+cosmic_variants.place(x=400, y=600)
 
 window.mainloop()
-
-# The interface should have two fields to write the email and pass
-# The interface should have a text box that displays the results of the analysis.
-# The interface should have a button to save the results to a file.
