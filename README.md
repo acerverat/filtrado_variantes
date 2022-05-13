@@ -11,22 +11,41 @@ Comparar las variantes de pacientes con las variantes de la base de datos de cos
 ## Cosmic
 
 <img width="1000" height= '200' src="public/cosmicLogo.jpg" alt="consmic_logo">
-Para poder usar este codigo tendras que hacer una cuenta en  <a href="https://cancer.sanger.ac.uk/cosmic/register">COSMIC</a> e incluir tu usuario y contrasena en el file install.sh en la carpeta root remplazando las variables "email" y "pass" con sus credenciales correspondientes.
+Para poder usar este codigo tendras que hacer una cuenta en  <a href="https://cancer.sanger.ac.uk/cosmic/register">COSMIC</a> ya que este programa te pedira hacer login con tu cuenta de cosmic.
 
-# Corre el programa
+# Instala el programa
 
 Para poder correr el programa con todas sus funcionalidades tendremos que descargar un par de dependencias de software, para ello necesitaremos correr un script en shell el cual esta en el directorio principal.
 
+Deberas de clonar el repositorio con alguno de los siguientes comandos:
+
+- git clone https://github.com/acerverat/filtrado_variantes.git
+- git clone git@github.com:acerverat/filtrado_variantes.git
+
 (Ubuntu)
 
-- sudo chmod +x run.sh
-- sudo ./run.sh
+- sudo chmod +x helpers/installers/install.sh
+- sudo ./helpers/installers/install.sh
 
+(Windows)
+
+- helpers/installers/install.exe
+-
+
+# Corre el programa
+
+De momento todavia no se agrega la descarga de aplicacion desktop por ende el programa lo puedes correr con:
+
+- python3 views/interface.py
+
+Tras correr tal comando te deberia de aparecer la siguiente interfaz con la cual podras interactuar!
+
+<img width="700" height= '700' src="public/interface.png" alt="INMEGEN logo">
 # Testing
 
 Para poder correr los tests
 
-<img width="900" height= '300' src="public/testing-1.jpg" alt="INMEGEN logo">
+<img width="700" height= '300' src="public/testing-1.jpg" alt="INMEGEN logo">
 El framework para testing que usaremos sera
 
 Sobre el directorio prueba vamos a usar robot para los tests
