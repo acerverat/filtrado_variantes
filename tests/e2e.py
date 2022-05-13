@@ -8,12 +8,13 @@ class TestInstall(unittest.TestCase):
 
    #  Tests the correct installation of the cosmic variants
 
-    def cosmic_variants_exist(self):
+    def test_cosmic_variants_exist(self):
+        print('this is a test')
         cosmic_variants_path = os.path.abspath(
             "cosmic_variants.tsv")
         self.assertEqual(file_exists(cosmic_variants_path), True)
 
-    def correct_output(self):
+    def test_correct_output(self):
         self.assertTrue('FOO'.isupper())
         self.assertFalse('Foo'.isupper())
 

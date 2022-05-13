@@ -4,7 +4,7 @@ import sys
 
 # Se
 # Descargue CosmicMutantExport.tsv de https://cancer.sanger.ac.uk/cosmic/download 
-# Quite entradas duplicadas  requiere un archivo de cosmicy me quede con las columnas: GENOMIC_MUTATION_ID     LEGACY_MUTATION_ID      HGVSG
+# Quite entradas duplicadas  requiere un archivo de cosmic y me quede con las columnas: GENOMIC_MUTATION_ID     LEGACY_MUTATION_ID      HGVSG
 # con eso anoto el cosmic id al final del procesamiento
 
 #sampleId = sys.argv[4]

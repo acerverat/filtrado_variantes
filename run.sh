@@ -1,6 +1,6 @@
 #!/bin/bash
 # https://cancer.sanger.ac.uk/cosmic/register
-# Please replace email and pass variables with your own credentials.
+# TODO: Please replace email and pass variables with your own credentials.
 email=CORREO
 pass=CONTRASENA
 auth=$(echo "$email:$pass" | base64)
@@ -12,14 +12,14 @@ cd tests
 sudo chmod +x test.sh
 cd ..
 # Installing dependencies
-sudo apt-get install python3-pip curl jp2a jq python3-tk
-pip install autopep8 virtualenv python-decouple tk
+sudo apt-get install python3-pip curl jp2a jq python3-tk gzip
+pip install autopep8 virtualenv python-decouple tk Pillow
 
 # Getting cosmic variants.
 mkdir data
 cd data
-if [ -e cosmic_variants.tsv ]; then
-    echo "cosmic_variants.tsv already exist"
+if [ -e CosmicMutantExport.tsv || -e CosmicMutantExport.tsv.gz]; then
+    echo "CosmicMutantExport.tsv already exist"
     sleep 1
     cd ../views
     python3 interface.py
@@ -28,15 +28,18 @@ else
     wait
     jp2a ../public/chromosome.jpg
     echo "Downloading variants from cosmos database..."
-    curl "$url" --output cosmic_variants.tsv
-    if [ -e cosmic_variants.tsv ]; then
+    # curl "$url" --output CosmicMutantExport.tsv.gz
+    gzip -d CosmicMutantExport.tsv.gz
+    if [ -e CosmicMutantExport.tsv ]; then
         jp2a ../public/inmegen_logo.jpg
-        echo "The file cosmic_variants.tsv was correctly loaded you can now run the tests of the program using ./test"
+        echo "The file CosmicMutantExport.tsv was correctly loaded you can now run the tests of the program using ./test"
         sleep 3
         cd ../views
         python3 interface.py
     else
-        echo "The file cosmic_variants.tsv was not loaded correctly"
+        echo "The file CosmicMutantExport.tsv was not loaded correctly"
+        cd ../views
+        python3 interface.py
     fi
 fi
 
@@ -45,3 +48,4 @@ cd ..
 # For more info on extracting the cosmos database look at:
 # https://cancer.sanger.ac.uk/cosmic/help/file_download
 # https://cancer.sanger.ac.uk/cosmic/download
+# TODO: use env variables for email and pass.
